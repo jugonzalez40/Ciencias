@@ -25,9 +25,11 @@ public class Main {
             int y = Integer.parseInt(params[3]);
             if (n == 0 && x == 0 && c.toString() == "0" && y == 0)
                 break;
-            y = y - 1;
-            // x = (n - 1) - (x - 1);
-            x = x-1;
+            x = (x - 1);
+            y = (n-1) - (y - 1);
+            
+            // x = x-1;
+            
             int[][] world = new int[n][n];
             String binaryConfig[] = c.toString(2).split("");
             Deque<Integer> q = new LinkedList<>();
@@ -48,7 +50,7 @@ public class Main {
             String face = "Nort"; // South, East, west
             String message = "";
             while (true) {
-                if (x == 0 && y == n - 1) {
+                if (y == 0 && x == n - 1) {
                     message = "Yes";
                     break;
                 } else if (x < 0 || x >= n || y < 0 || y >= n) {
@@ -57,11 +59,11 @@ public class Main {
                 }
                 switch (face) {
                 case "Nort": {
-                    if (world[x][y] == 0) {
-                        y--;
+                    if (world[y][x] == 0) {
+                        x--;
                         face = "West";
                     } else {
-                        y++;
+                        x++;
                         face = "East";
                     }
                     // left = j-- face = west
@@ -69,11 +71,11 @@ public class Main {
                     break;
                 }
                 case "South": {
-                    if (world[x][y] == 0) {
-                        y++;
+                    if (world[y][x] == 0) {
+                        x++;
                         face = "East";
                     } else {
-                        y--;
+                        x--;
                         face = "West";
                     }
                     // left = j++ face = east
@@ -81,11 +83,11 @@ public class Main {
                     break;
                 }
                 case "West": {
-                    if (world[x][y] == 0) {
-                        x++;
+                    if (world[y][x] == 0) {
+                        y++;
                         face = "South";
                     } else {
-                        x--;
+                        y--;
                         face = "North";
                     }
                     // left = i++ face = south
@@ -93,11 +95,11 @@ public class Main {
                     break;
                 }
                 case "East": {
-                    if (world[x][y] == 0) {
-                        x--;
+                    if (world[y][x] == 0) {
+                        y--;
                         face = "North";
                     } else {
-                        x++;
+                        y++;
                         face = "South";
                     }
                     // left = i-- face = north
