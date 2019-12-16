@@ -5,7 +5,12 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
-
+/**
+ * Diplomado Ciencias de la computación 
+ * Problema vjudge.net => Langton's Ant 
+ * https://vjudge.net/contest/347090#problem/D
+ * @author  Juan Sebastián González Rivera 
+ */
 public class Main {
     public static void main(String[] args) throws IOException {
         InputStreamReader isr = new InputStreamReader(System.in);
