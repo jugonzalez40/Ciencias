@@ -26,7 +26,7 @@ public class Main {
             if (n == 0 && x == 0 && c.toString() == "0" && y == 0)
                 break;
             x = (x - 1);
-            y = (n-1) - (y - 1);
+            y = (n - y);
             
             // x = x-1;
             
@@ -47,9 +47,11 @@ public class Main {
                     world[i][j] = q.poll();
                 }
             }
-            String face = "Nort"; // South, East, west
+            String face = "North"; // South, East, west
             String message = "";
             while (true) {
+                // System.out.println("param");
+                // for(String param : params) System.out.println(param);
                 if (y == 0 && x == n - 1) {
                     message = "Yes";
                     break;
@@ -58,11 +60,13 @@ public class Main {
                     break;
                 }
                 switch (face) {
-                case "Nort": {
+                case "North": {
                     if (world[y][x] == 0) {
+                        world[y][x] = 1;
                         x--;
                         face = "West";
                     } else {
+                        world[y][x] = 0;
                         x++;
                         face = "East";
                     }
@@ -72,9 +76,11 @@ public class Main {
                 }
                 case "South": {
                     if (world[y][x] == 0) {
+                        world[y][x] = 1;
                         x++;
                         face = "East";
                     } else {
+                        world[y][x] = 0;
                         x--;
                         face = "West";
                     }
@@ -84,9 +90,11 @@ public class Main {
                 }
                 case "West": {
                     if (world[y][x] == 0) {
+                        world[y][x] = 1;
                         y++;
                         face = "South";
                     } else {
+                        world[y][x] = 0;
                         y--;
                         face = "North";
                     }
@@ -96,9 +104,11 @@ public class Main {
                 }
                 case "East": {
                     if (world[y][x] == 0) {
+                        world[y][x] = 1;
                         y--;
                         face = "North";
                     } else {
+                        world[y][x] = 0;
                         y++;
                         face = "South";
                     }
